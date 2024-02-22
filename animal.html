@@ -22,12 +22,15 @@
     <p>Correct: <span id="correctCount">0</span></p>
     <p>Wrong: <span id="wrongCount">0</span></p>
 </div>
+<div>
+    <button type="button"><img src="cococola.png" alt="cococola" onclick="selectImage()" id="image" width="150" height="150" ></button>
+</div>
 
 <script>
     // Global variables
     let wrong = 0;
     let correct = 0;
-
+    //let useimage = 1;
     // Function to check the guessed animal
     function checkAnimal() {
         // Get values from input elements
@@ -42,10 +45,36 @@
             wrong++;
             alert("Grrrr");
         }
+        if(wrong>correct)
+        {
+            document.getElementById("result").innerHTML =  "Sorry, too many wrong guesses.";
+        }
 
         // Update the innerHTML for the result container
         document.getElementById('correctCount').innerHTML = correct;
+      
         document.getElementById('wrongCount').innerHTML = wrong;
+    }
+    var useImage=1;
+    function selectImage()
+    {
+        switch (useImage) {
+            case 1:
+                document.getElementById("image").src="cococola.png";
+                useImage=2;
+                break;
+            case 2:
+                document.getElementById("image").src = "thumsup.png";
+                useImage=3;
+                break;
+            case 3:
+                 document.getElementById("image").src = "horlicks.png";   
+                 useImage=1;
+                break;
+        
+            default:
+                break;
+        }
     }
 </script>
 
